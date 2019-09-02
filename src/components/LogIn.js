@@ -3,6 +3,10 @@ import { StyleSheet, View, Text, Button } from 'react-native';
 import { SocialIcon } from 'react-native-elements'
 import { login } from '../config/firebase'
 import * as Facebook from 'expo-facebook';
+import ignoreWarnings from 'react-native-ignore-warnings';
+
+ignoreWarnings('Setting a timer');
+
 
 class LogIn extends Component {
   constructor(props) {
@@ -27,10 +31,10 @@ class LogIn extends Component {
       // Get the user's name using Facebook's Graph API
       const response = await fetch(`https://graph.facebook.com/me?access_token=${token}`);
       const res = await response.json();
-      console.log('res==>', res)
+      // console.log('res==>', res)
       try {
         const user = await login(token);
-        console.log('user ===>', user);
+        // console.log('user ===>', user.user);
         this.props.navigation.navigate('Messages')
       } catch (e) {
         console.log('e ===>', e)

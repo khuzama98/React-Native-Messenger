@@ -41,15 +41,22 @@ const chatNavigation = createStackNavigator({
   Home: {
     screen: TabNavigator
   },
-  Chat : {
+  Chat: {
     screen: Routes.ChatWith
+  },
+  Story: {
+    screen: Routes.Story
+  },
+  AddStory: {
+    screen: Routes.AddStory
   }
 },
-{ headerMode: 'none',
-  navigationOptions: {
-    headerVisible: false,
-  }
-})
+  {
+    headerMode: 'none',
+    navigationOptions: {
+      headerVisible: false,
+    }
+  })
 
 const MainNavigator = createSwitchNavigator({
   Auth: {
